@@ -1,0 +1,25 @@
+language: java
+
+runtime:
+  nodePool: dynamic__x86_64__CentOS_7__c4_large
+  
+jdk:
+  - openjdk7
+  - openjdk8
+  - openjdk9 
+  - oraclejdk10
+ # - oraclejdk8
+ 
+build:
+
+  pre_ci_boot:
+    image_name: drydock/c7javall
+    image_tag: v6.4.4
+    pull: true
+    
+  ci:
+    - java -version
+    - echo $SHIPPABLE_JDK_VERSION
+    - mvn --version    
+    - ant -version 
+    - gradle --version
