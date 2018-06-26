@@ -14,5 +14,4 @@ build:
     pull: true
     
   ci:
-    - python --v
     - python -version
